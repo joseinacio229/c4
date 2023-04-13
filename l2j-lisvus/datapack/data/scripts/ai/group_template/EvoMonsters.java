@@ -23,6 +23,7 @@ import net.sf.l2j.gameserver.model.L2Character;
 import net.sf.l2j.gameserver.model.actor.instance.L2NpcInstance;
 import net.sf.l2j.gameserver.model.actor.instance.L2PcInstance;
 import net.sf.l2j.gameserver.model.quest.Quest;
+import net.sf.l2j.gameserver.network.serverpackets.NpcSay;
 
 /**
  * @author Karakan
@@ -78,6 +79,7 @@ public class EvoMonsters extends Quest
 			if (originalKiller != null)
 			{
 				newNpc.addDamageHate(originalKiller, 0, 100);
+				npc.broadcastPacket(new NpcSay(npc.getObjectId(), 0, npc.getNpcId(), "KADU E PINGAIADA e Um OPALA 6 CANECO"));
 				newNpc.getAI().setIntention(CtrlIntention.AI_INTENTION_ATTACK, originalKiller);
 			}
 		}
